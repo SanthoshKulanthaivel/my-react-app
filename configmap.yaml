@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: react-app-config        # ← label connect ku use aagum
+  namespace: dev-testing-santhosh
+data:
+  NODE_ENV: "development"
+  APP_NAME: "my-react-app"

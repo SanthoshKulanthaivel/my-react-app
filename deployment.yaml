@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-app
+  namespace: dev-testing-santhosh
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-app            # ← Service idu use panni find pannும்
+  template:
+    metadata:
+      labels:
+        app: react-app          # ← Pod ku idhu tag
+    spec:
+      containers:
+        - name: react-app
+          image: jasmafdocker/newone-image-testing:latest
+          ports:
+            - containerPort: 5173
+          envFrom:
+            - configMapRef:
+                name: react-app-config  # ← ConfigMap connect
